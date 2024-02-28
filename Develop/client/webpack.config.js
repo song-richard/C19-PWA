@@ -22,10 +22,34 @@ module.exports = () => {
         template: './src/index.html',
         filename: 'index.html',
       }),
+      new WebpackPwaManifest({
+        name: 'Editor',
+        short_name: 'Editor',
+        description: 'Text Editor',
+        background_color: '#ffffff',
+        theme_color: '#ffffff',
+      }),
+      new InjectManifest({
+        swSrc: './src/sw.js',
+        swDest: 'sw.js',
+      }),
     ],
     module: {
       rules: [
-        
+        {
+          test: /\.css$/,
+          use: ['style-loader', 'css-loader'],
+        },
+        {
+          test: /\.js$/,
+          exclude: /node_modules/,
+          use: {
+            loader: 'babel-loader',
+            options: {
+              presets: ['@babel/preset-env'],
+            },
+          },
+        },
       ],
     },
   };
