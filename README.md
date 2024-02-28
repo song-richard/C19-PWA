@@ -10,3 +10,5 @@ This is a text editor web application with the following features:
 - Service worker registration for offline support
 - Deployment to Render with proper build scripts for a webpack application
 
+## Features
+
