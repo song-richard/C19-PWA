@@ -22,6 +22,13 @@ module.exports = () => {
         template: './src/index.html',
         filename: 'index.html',
       }),
+      new WebpackPwaManifest({
+        name: 'Editor',
+        short_name: 'Editor',
+        description: 'Text editor',
+        background_color: '#ffffff',
+        theme_color: '#ffffff',
+      }),
     ],
     module: {
       rules: [
